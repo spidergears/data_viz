@@ -1,8 +1,20 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
+gem 'mongoid', git: 'git@github.com:mongoid/mongoid.git'
+gem "bson"
+gem "moped", github: "mongoid/moped"
+
+gem 'bootstrap-sass'
+gem 'angularjs-rails'
+gem 'angular-gem'
+gem 'angular-ui-bootstrap-rails'
+
+gem 'rspec-rails', group: :test
+
+gem 'mina'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
