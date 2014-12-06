@@ -10,6 +10,10 @@ gem 'bootstrap-sass'
 gem 'angularjs-rails'
 gem 'angular-gem'
 gem 'angular-ui-bootstrap-rails'
+gem 'haml-rails'
+# javascript run time
+gem 'therubyracer'
+gem 'execjs'
 
 gem 'rspec-rails', group: :test
 

@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require zingcharts/zingchart-html5-min
+var sampleChart = {
+		type   : "line",
+		title  : {text: "Hello ZingChart World!"},
+		series : [
+			{values:[5, 10, 15, 5, 10, 5]},
+			{values:[2, 4, 6, 8, 10, 12]}
+		]
+	};
