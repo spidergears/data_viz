@@ -13,13 +13,296 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
 //= require zingcharts/zingchart-html5-min
 var sampleChart = {
-		type   : "line",
-		title  : {text: "Hello ZingChart World!"},
-		series : [
-			{values:[5, 10, 15, 5, 10, 5]},
-			{values:[2, 4, 6, 8, 10, 12]}
-		]
-	};
+"background-color":"#363b42",
+"graphset":[
+    {
+        "type":"line",
+        "background-color":"none",
+        "title":{
+            "text":"Population Dynamics",
+            "font-size":"28px",
+            "bold":false,
+            "background-color":"none",
+            "color":"white",
+            "align":"left",
+            "margin-left":"6%",
+            "margin-top":"10%",
+            "font-family":"arial"
+        },
+        "labels":[
+            {
+                "text":"Male",
+                "font-size":"14px",
+                "color":"white",
+                "background-color":"none",
+                "x":"66%",
+                "y":"15%",
+                "font-family":"arial"
+            },
+            {
+                "text":"Female",
+                "font-size":"14px",
+                "color":"white",
+                "background-color":"none",
+                "x":"81%",
+                "y":"15%",
+                "font-family":"arial"
+            },
+            {
+                "text":"48.5%",
+                "font-size":"14px",
+                "color":"green",
+                "background-color":"none",
+                "x":"66%",
+                "y":"24%",
+                "font-family":"arial"
+            },
+            {
+                "text":"51.5%",
+                "font-size":"14px",
+                "color":"red",
+                "background-color":"none",
+                "x":"81%",
+                "y":"24%",
+                "font-family":"arial"
+            }
+        ],
+        "plot":{
+            "line-width":"2px",
+            "line-color":"#0C9BBC",
+            "marker":{
+                "type":"circle",
+                "background-color":"#0C9BBC",
+                "border-width":1,
+                "size":5,
+                "shadow":0,
+                "border-color":"#0C9BBC"
+            },
+            "hover-marker":{
+                "type":"circle",
+                "size":6,
+                "background-color":"#016B8B",
+                "border-width":"1px"
+            }
+        },
+        "plotarea":{
+            "margin-top":"50%"
+        },
+        "scale-x":{
+            "line-color":"#D3D3D3",
+            "values":["2009","2010","2011","2012","2013","2014","2014"],
+            "item":{
+                "font-color":"#D3D3D3",
+                "font-family":"arial"
+            },
+            "tick":{
+                "line-color":"#D3D3D3"
+            },
+            "guide":{
+                "visible":false
+            }
+        },
+        "scale-y":{
+            "visible":false,
+            "guide":{
+                "visible":false
+            }
+        },
+        "width":"100%",
+        "height":"50%",
+        "tooltip":{
+            "text":"$%v",
+            "negation":"currency",
+            "background-color":"#016B8B",
+            "border-radius":"6px",
+            "shadow":false,
+            "padding":"5px 10px"
+        },
+        "series":[
+            {
+                "values":[78,10,33,7,12,9,25]
+            }
+        ]
+    },
+    {
+        "type":"null",
+        "background-color":"#363b42",
+        "x":0,
+        "y":"50%",
+        "width":"100%",
+        "title":{
+            "text":"Dynamics",
+            "background-color":"#363b42",
+            "font-family":"arial",
+            "font-size":"20px",
+            "bold":false,
+            "align":"left",
+            "margin-left":"6%",
+            "margin-top":"20%"
+        },
+        "plotarea":{
+            "background-color":"#363b42"
+        }
+    },
+    {
+        "type":"pie",
+        "background-color":"#363b42",
+        "title":{
+            "text":"Literacy",
+            "y":"50%",
+            "background-color":"none",
+            "color":"white",
+            "font-size":"13px",
+            "font-family":"arial",
+            "wrap-text":"true"
+        },
+        "width":"33%",
+        "height":"33%",
+        "x":"0",
+        "y":"60%",
+        "plot":{
+            "slice":"45",
+            "shadow":0,
+            "border-width":0
+        },
+        "series":[
+            {
+                "values":[78],
+                "value-box":{
+                    "visible":false
+                },
+                "background-color":"#0EBFE9",
+                "tooltip":{
+                    "text":"Male: %v%",
+                    "shadow":false,
+                    "border-radius":4
+                }
+            },
+            {
+                "values":[22],
+                "value-box":{
+                    "visible":false
+                },
+                "background-color":"#D3D3D3",
+                "alpha":0.5,
+                "tooltip":{
+                    "text":"Female: %v%",
+                    "shadow":false,
+                    "border-radius":4
+                }
+            }
+        ]
+    },
+    {
+        "type":"pie",
+        "background-color":"#363b42",
+        "title":{
+            "text":"Health",
+            "y":"50%",
+            "font-family":"arial",
+            "background-color":"none",
+            "color":"white",
+            "font-size":"13px",
+            "wrap-text":"true"
+        },
+        "width":"33%",
+        "height":"33%",
+        "x":"33%",
+        "y":"60%",
+        "plot":{
+            "slice":"45",
+            "shadow":0,
+            "border-width":0
+        },
+        "series":[
+            {
+                "values":[55],
+                "background-color":"#0EBFE9",
+                "tooltip":{
+                    "text":"Male: %v%",
+                    "shadow":false,
+                    "border-radius":4
+                },
+                "value-box":{
+                    "visible":"false"
+                }
+            },
+            {
+                "values":[45],
+                "background-color":"#D3D3D3",
+                "alpha":0.5,
+                "tooltip":{
+                    "text":"Female: %v%",
+                    "shadow":false,
+                    "border-radius":4
+                },
+                "value-box":{
+                    "visible":"false"
+                }
+            }
+        ]
+    },
+    {
+        "type":"pie",
+        "background-color":"#363b42",
+        "title":{
+            "text":"Employment",
+            "y":"50%",
+            "font-family":"arial",
+            "background-color":"none",
+            "color":"white",
+            "font-size":"13px",
+            "wrap-text":"true"
+        },
+        "width":"50%",
+        "height":"50%",
+        "x":"66%",
+        "y":"60%",
+        "plot":{
+            "slice":"45",
+            "shadow":0,
+            "border-width":0
+        },
+        "series":[
+            {
+                "values":[88],
+                "background-color":"#0EBFE9",
+                "tooltip":{
+                    "text":"Male: %v%",
+                    "shadow":false,
+                    "border-radius":4
+                },
+                "value-box":{
+                    "visible":"false"
+                }
+            },
+            {
+                "values":[12],
+                "background-color":"#D3D3D3",
+                "alpha":0.5,
+                "tooltip":{
+                    "text":"Female: %v%",
+                    "shadow":false,
+                    "border-radius":4
+                },
+                "value-box":{
+                    "visible":"false"
+                }
+            }
+        ]
+    }
+]
+}
+/*{
+	type   : "line",
+	title  : {text: "Hello ZingChart World!"},
+	series : [
+		{values:[5, 10, 15, 5, 10, 5]},
+		{values:[2, 4, 6, 8, 10, 12]}
+	]
+};
+*/
