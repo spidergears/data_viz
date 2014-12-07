@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       get 'contact'
     end
   end
+
+  post '/search' => 'api/v1/search#search'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

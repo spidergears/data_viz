@@ -20,3 +20,7 @@ var drawChart = function(type, title, data, div_id){
   }
   renderChart(div_id, chart)
 };
+
+var request_search = function(){
+  $.ajax({type:'POST', url:'/search', data: {search_term: this.search.search_term.value}, success: function(data){drawChart("line", "sampleChart", data, "sampleChart")}})
+}

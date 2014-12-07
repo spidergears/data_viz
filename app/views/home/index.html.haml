@@ -7,9 +7,9 @@
         Browse Through!!!
     %center
       #searchbox.center
-        %form.form-inline{:role => "search"}
-          %input.form-control{:placeholder => "Search", :type => "text"}
-          %button.btn.btn-default{:type => "submit"} Submit
+        %form.form-inline{:role => "search", name: "search"}
+          %input.form-control{:placeholder => "Search", :name => "search_term", :type => "text"}
+          %a{:title => "Search", :href =>"#", :onclick=> "request_search()", :class => "btn.btn-defaultSubmit"} Search
 
 
   %center
