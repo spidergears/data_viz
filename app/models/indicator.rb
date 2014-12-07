@@ -2,10 +2,11 @@ class Indicator
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :code
-  field :name
-  field :description
-  field :detail_description
-
-  has_many :statistics
+  field :SeriesCode, type: String
+  field :Topic, type: String
+  field :Dataset, type: String
+  field :IndicatorName, type: String
+  field :ShortDefinition, type: String
+  field :LongDefinition, type: String
+  field :Unit_Measure, type: String
 end

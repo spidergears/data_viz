@@ -1,20 +1,22 @@
 var renderChart = function(div_id, chart_data){
   zingchart.render({
     id: div_id,
-    height: 450,
-    width: 600,
+    height: "70%",
+    width: "800%",
     data: chart_data
   });
 }
 
 var drawChart = function(type, title, data, div_id){
+  series= []
+  $.each(data, function(index, data){series.push({values: data})})
   chart = {
     type   : type,
     title  : {"text": title},
-    series : [{values: data}],
-    "scale-x": {zooming: true},
+    series : series,
+    "scale-x": {zooming: true, short: true},
     "scroll-x":{},
-    "scale-y": {zooming: true},
+    "scale-y": {zooming: true, short: true},
     "scroll-y": {},
     preview: {} //depend on data size 
   }
@@ -22,5 +24,18 @@ var drawChart = function(type, title, data, div_id){
 };
 
 var request_search = function(){
-  $.ajax({type:'POST', url:'/search', data: {search_term: this.search.search_term.value}, success: function(data){drawChart("line", "sampleChart", data, "sampleChart")}})
+  $.ajax({type:'POST', url:'/search', data: {search_term: this.search.search_term.value}, success: function(data){
+    drawChart("line", "sampleChart", data, "sampleChart")
+    //drawGraphSet(data)
+  }})
+}
+
+var drawGraphSet = function(data){
+  console.log(data)
+  graphset = []
+  $.each(data, function(index, data){
+    graphset.push({type: "line", title: data[0], labels: data[1], series: {values: data[2]}, "scale-x": {zooming: true, short: true},
+    "scroll-x":{}, "scale-y": {zooming: true, short: true}, "scroll-y": {} })
+  })
+  renderChart("sampleChart", {graphset: graphset})
 }
