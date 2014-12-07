@@ -1,6 +1,18 @@
 #page-content
-  Welcome to the WDIViz App.
-  Here is a sample chart.
-  #sampleChart
-:javascript
-  renderSampleChart()
+  .jumbotron
+    %center
+      %h2 Welcome to the WDIViz App.
+      %h12 WDIViz help browse throught the World Bank's World Development Indicators Database in a visual form. You query the database using simple string querries to access data of interest and dive deep into it clicking on the generated graphs on modifying your string query.
+      %center 
+        Browse Through!!!
+    %center
+      #searchbox.center
+        %form.form-inline{:role => "search"}
+          %input.form-control{:placeholder => "Search", :type => "text"}
+          %button.btn.btn-default{:type => "submit"} Submit
+
+
+  %center
+    #sampleChart
+      :javascript
+        renderSampleChart()
