@@ -26,7 +26,6 @@ class Api::V1::SearchController < ApplicationController
         plotdata << ["#{indicator}", labels, values]
       end
     end
-    binding.pry
     render :json => plotdata
   end
 
