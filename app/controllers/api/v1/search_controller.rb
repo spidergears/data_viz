@@ -18,10 +18,13 @@ class Api::V1::SearchController < ApplicationController
       countries.each_with_index do |country, country_index|
         values = []
         labels = []
-        model = WdiData.where(CountryName: country, IndicatorCode: indicator).first.to_model
-        model.attribute_names.grep(/20*/).each_with_index do |attr, index|
-          values << model[attr]
-          labels << attr
+        data = WdiData.where(CountryName: country, IndicatorName: indicator).first
+        if data
+          model = data.to_model
+          model.attribute_names.grep(/20*/).each_with_index do |attr, index|
+            values << model[attr]
+            labels << attr
+          end
         end
         plotdata << ["#{indicator}", labels, values]
       end
@@ -37,7 +40,7 @@ class Api::V1::SearchController < ApplicationController
   end
 
   def is_indicator?(txtstring)
-    return Mongoid::Sessions.default.command(:text => "indicators", :search => txtstring).first.last.collect { |record| record["obj"]["SeriesCode"]} if Mongoid::Sessions.default.command(:text => "indicators", :search => txtstring).first.last.present?
+    return Mongoid::Sessions.default.command(:text => "indicators", :search => txtstring).first.last.collect { |record| record["obj"]["IndicatorName"]} if Mongoid::Sessions.default.command(:text => "indicators", :search => txtstring).first.last.present?
     return false
   end
 
